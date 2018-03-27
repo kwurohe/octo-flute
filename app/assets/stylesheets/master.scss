@@ -26,3 +26,9 @@ body {
   background: image_url('dark-triangles.png');
   box-shadow: 0px 1px 2px grey;
 }
+
+.navbar-inverse .navbar-brand {
+  color: #FFA200;
+  font-family: 'webfontregular';
+  font-size: 30px;
+}
