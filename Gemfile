@@ -63,3 +63,4 @@ end
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem "font-awesome-rails"
+gem 'devise'
