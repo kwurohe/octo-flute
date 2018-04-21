@@ -30,6 +30,26 @@
     <div id="map"></div>
   <% end %>
   
+  <div class="row">
+    <div class="col-12">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-sm float-left" data-toggle="modal" data-target="#myImageModal">
+        Add an Image
+      </button>
+    </div>
+  </div>
+  </br>
+  
+  <div class="row">
+  <% @place.photos.each do |photo| %>
+    <div class="col-12 col-sm-6">  
+      <%= image_tag photo.picture %>
+      <%= photo.caption %>
+      <small><%= photo.user.email %></small>
+    </div>
+  <% end %>
+  </div>
+  
   <br />
   
     <div class="float-right">
@@ -50,7 +70,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Add a Comment</h4>
       </div>     
       <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
         <div class="modal-body">
@@ -66,14 +86,41 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Add an Image</h4>
+      </div>     
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+        <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add an Image", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>
 </br>
 
-<div class="col-10 offset-1">
-  <h1 class="float-left">Comments</h1>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
-    Add a Comment
-  </button>
+<div class="row">
+  <div class="col-10 offset-1">
+    <h1 class="float-left">Comments</h1>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+      Add a Comment
+    </button>
+  </div>
 </div>
 
 <div class="clear"></div>
