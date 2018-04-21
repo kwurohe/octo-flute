@@ -18,6 +18,7 @@
         <%= place.comments.last.message %>
         <small><%= place.comments.last.user.email %></small>
       </blockquote>
+      <%= image_tag place.photos.last.picture %>
     </div>
   <% end %>
   </div>
