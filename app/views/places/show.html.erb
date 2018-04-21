@@ -34,6 +34,7 @@
   <% @place.photos.each do |photo| %>
     <div class="col-12 col-sm-6">  
       <%= image_tag photo.picture %>
+      </br>
       <%= photo.caption %>
       <small><%= photo.user.email %></small>
     </div>
@@ -46,9 +47,9 @@
         <% if current_user && current_user == @place.user %>
             <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
             <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myImageModal">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myImageModal">
               Add an Image
-            </button>  
+            </button>
         <% end %>
     </div>
 </div>
