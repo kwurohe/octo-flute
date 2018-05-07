@@ -10,7 +10,7 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   
-  config.action_mailer.default_url_options = { host: 'limitless-beach-52895.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'nomster-keren-wurohe-2.herokuapp.com/' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
