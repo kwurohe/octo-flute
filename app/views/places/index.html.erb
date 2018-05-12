@@ -36,29 +36,34 @@
 
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
-    <h1><%= link_to place.name, place_path(place) %></h1><br />
-    <i><%= place.address %></i> <br /><br />
-    <p><%= place.description %></p>
-    
-    <% if place.user.present? %>
-      <small><%= place.user.email %></small>
-    <% end %>
-    
-  <% if place.comments.present? %>
-    <div class="col-12">
-      <blockquote>    
-        <% place.comments.last.rating.to_i.times do %>
-          <i class="fa fa-star" aria-hidden="true"></i>
+    <div class="row">
+      <div class="col-8">
+        <h1><%= link_to place.name, place_path(place) %></h1><br />
+        <i><%= place.address %></i> <br /><br />
+        <p><%= place.description %></p>
+
+        <% if place.user.present? %>
+          <small><%= place.user.email %></small>
         <% end %>
-        </br>
-        <%= place.comments.last.message %>
-        <small><%= place.comments.last.user.email %></small>
-      </blockquote>
-      <% if place.photos.present? %>
-        <%= image_tag place.photos.last.picture %>
-      <% end %>
+      </div>
+      <div class="col-4">
+        <% if place.photos.present? %>
+          <%= image_tag place.photos.last.picture %>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+    <% if place.comments.present? %>
+      <div class="col-12">
+        <blockquote>    
+          <% place.comments.last.rating.to_i.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          </br>
+          <%= place.comments.last.message %>
+          <small><%= place.comments.last.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>    
   </div>
 <% end %>
 <%= paginate @places %>
