@@ -12,3 +12,21 @@
   </div>
   <div class="clear"></div>
 </div>  
+
+<br /><br />
+<h1 class="text-center">My Comments</h1>
+<br /><br />
+<div class="row">
+  <% @user.comments.each do |comment| %>
+    <div class="col-10 col-sm-5 offset-1">
+      <h2 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %></h2>
+      <blockquote>    
+        <% comment.rating.to_i.times do %>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        <% end %>
+        </br>
+        <%= comment.message %>
+      </blockquote>
+    </div>
+  <% end %>
+</div>
