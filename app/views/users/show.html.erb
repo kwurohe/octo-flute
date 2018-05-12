@@ -38,7 +38,7 @@
 <% @user.places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
     <div class="row">
-      <div class="col-8">
+      <div class="col-lg-8">
         <h1><%= link_to place.name, place_path(place) %></h1><br />
         <i><%= place.address %></i> <br /><br />
         <p><%= place.description %></p>
@@ -47,7 +47,7 @@
           <small><%= place.user.email %></small>
         <% end %>
       </div>
-      <div class="col-4">
+      <div class="col-md-4 visible-lg">
         <% if place.photos.present? %>
           <%= image_tag place.photos.last.picture %>
         <% end %>
